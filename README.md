@@ -93,7 +93,7 @@ Cool, now we can store that user to a variable to use later:
 
 If you look in the user model `apps/models/user.rb` you will see that users have_many :products, and in `apps/models/product.rb` that products :belong_to user. In this imaginary scenario pretend each user is a vendor at some kind of market and is using this application to keep inventory. If you take a look at the product table by running:
 
-    > puts Product
+    > Product
     => Product(id: integer, user_id: integer, name: string, price: integer, created_at: datetime, updated_at: datetime)
 
 You will see that each product contains a foreign key called `user_id` lets add a product to our user. Using the existing variable from previously we can see all of our user's products:
@@ -153,7 +153,7 @@ Your numbers might be different but it should be more than 1.
 
 # 2) Modify Views and Logging
 
-Now that we have a bunch of users and associated products lets do something useful with them. Previously we noted that [localhost:3000/products](http://localhost:3000/products) was linked to the view `app/views/products/index.html.erb` through a route in our `config/routes.rb` file. Open the `index.html.erb` view now in a text editor (i recommend sublime text 2 for mac). Make sure your rails server is started (`$ rails server`) and visit [localhost:3000/products](http://localhost:3000/products) in your browser.
+Now that we have a bunch of users and associated products, lets do something useful with them. Previously we noted that [localhost:3000/products](http://localhost:3000/products) was linked to the view `app/views/products/index.html.erb` through a route in our `config/routes.rb` file. Open the `index.html.erb` view now in a text editor (i recommend sublime text 2 for mac). Make sure your rails server is started (`$ rails server`) and visit [localhost:3000/products](http://localhost:3000/products) in your browser.
 
 Add this to the top of the `index.html.erb` file:
 
@@ -162,7 +162,7 @@ Add this to the top of the `index.html.erb` file:
 When you refresh your page you should see the new text:
 
 
-If you don't go back and follow the prior steps.
+If you don't, go back and follow the prior steps.
 
 If you look in your rails server log (this is the code that gets spewed from terminal after you run `$ rails server`), you should be able to see a line in there that looks like this
 
@@ -171,15 +171,15 @@ If you look in your rails server log (this is the code that gets spewed from ter
 
 (Note: we are using the `quiet_assets` gem, if you do this on another project your output will still have the same info, but it will also have a bunch of useless output for debugging as well.)
 
-This is telling us that we are using a GET request on the url `/products` url, and since our routes have that mapped to `Products#index` in our routes.rb file our server log will tell us that combination of HTTP action and URL that we are looking at is located in the products controller and index action:
+This is telling us that we are using a GET request on the `/products` url, and since our routes have that mapped to `products#index` in our routes.rb file, our server log will tell us that combination of HTTP action and URL that we are looking at is located in the products controller and index action:
 
     Processing by ProductsController#index as HTML
 
-Finally it will tell us that the view it rendered is coming from `products/index.html.erb` and that is is using the `laouts/application` file.
+Finally it will tell us that the view it rendered is coming from `products/index.html.erb` and that is is using the `layouts/application` file.
 
       Rendered products/index.html.erb within layouts/application (0.2ms)
 
-We also learn that the request was a 200 response which is how computers say everything was good. If it was not a good response we might see a `404` or `500` reponse. On redirects we can expect a `301` or `302` response.
+We also learn that the request was a 200 response which is how computers say everything was good. If it was not a good response we might see a `404` or `500` response. On redirects we can expect a `301` or `302` response.
 
     Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
 
@@ -190,11 +190,11 @@ All together the log looks like this:
       Rendered products/index.html.erb within layouts/application (0.2ms)
     Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
 
-There is alot of information in a tiny package. When things go wrong in your app you can use the log output to verify your assumptions are correct, and to get error messages.
+There is a lot of information in a tiny package. When things go wrong in your app, you can use the log output to verify your assumptions are correct and to get error messages.
 
 #### Homework:
 
-Visit a [localhost:3000/users](http://localhost:3000/users) and then find the log entry. Then open up the readme.md you coppied onto your local machine and fill out this information:
+Visit this url: [localhost:3000/users](http://localhost:3000/users) and then find the log entry. Then open up the readme.md you copied onto your local machine and fill out this information:
 
 
 HTTP verb used in this request:
@@ -254,7 +254,7 @@ Check your logs again, did the SQL change? Are there any new statements, why?
 
 #### Homework:
 
-We've pulled data out of our database and into our rails view, pretty sweet. But the product from `Product.first` isn't very interesting. Make a new ERB tag and in it make a different type of query, storing the value to a variable. `<%= product = Product.where(:name => 'rails book').first %>` or `<%= cheap_product = Product.where('price < 5').first %>`.
+We've pulled data out of our database and into our rails view, pretty sweet. But the product from `Product.first` isn't very interesting. Make a new ERB tag and in it make a different type of query, storing the value to a variable. `<%= product = Product.where(:name => 'rails book').first %>` or `<%= cheap_product = Product.where('price > 1').first %>`.
 
 Then output the name of the product, it's price and the name of the owner of the product. After each take a look a the log and see if there are new SQL statements listed.
 
@@ -424,7 +424,7 @@ The output is a bit cryptic, but lets dig into the first line in my output.
 
      products GET    /products(.:format)       products#index
 
-The first element `products` refers to a url helper that we can use in our views. Rather than having to type '/products' directly into our view we could use `products_path` that might seem silly now, but later it will be nice.
+The first element `products` refers to a url helper that we can use in our views. Rather than having to type '/products' directly into our view we could use `products_path` that might seem silly now, but we won't see the benefit from this till later.
 
 The next element `GET` refers to the HTTP verb that the url is accessible at.
 
