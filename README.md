@@ -197,18 +197,21 @@ There is a lot of information in a tiny package. When things go wrong in your ap
 Visit this url: [localhost:3000/users](http://localhost:3000/users) and then find the log entry. Then open up the readme.md you copied onto your local machine and fill out this information:
 
 
-HTTP verb used in this request:
-URL:
-Controller Name:
-Controller Action:
-View File Name:
-Layout File Name:
-Response code of the request:
+HTTP verb used in this request: Get
+URL: /users
+Controller Name: UsersController
+Controller Action: index
+View File Name: users/index.html.erb 
+Layout File Name: layouts/application
+Response code of the request: 200
 
 You should also notice a new line or two that we didn't see before, what is it (copy and paste, hint: after User Load) ?
 
+User Load (0.5ms)  SELECT "users".* FROM "users" 
+
 Why do you think this line is there?
 
+It's the sql code to query the database
 
 
 Save and commit your answers.
