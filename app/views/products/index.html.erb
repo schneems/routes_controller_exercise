@@ -1,5 +1,27 @@
+<% first_product = Product.first %>
 <h2>Hello World</h2>
-<h2> I AMA View </h2>
+<h3>The world's absolute best internet marketplace!</h3>
+
+<p>
+
+<% first_product = Product.first %>
+<% cheap_product = Product.where('price < 5').first %>
+<% expensive_product = Product.where('price > 15').last %>
+<% products = Product.count %>
+<% users = User.count %>
+
+<p>
+  The best seller in the market is <%= first_product.user.name %> and she is a <%=first_product.user.job_title %>. She is selling her <%= first_product.name %> for only $<%= first_product.price %>!
+</p>
+
+
+<p> With <%=users %> people trying to get your attention, it can be hard to choose what to buy. Here is some advice. Some products are quite cheap. A good deal is the <%=cheap_product.name %>. It costs <%=cheap_product.price %> dollar. You can buy the <%=cheap_product.name %> from <%= cheap_product.user.name %>. 
+</p>
+
+<p> If you have more money to spend, try the <%=expensive_product.name %>. It costs a bit more at $<%=expensive_product.price %>, but <%=expensive_product.user.name %> is a good person to buy from. Of our <%=products%> products, this one is my favorite.
+
+</P>
+
 <p>
   Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
 </p>
