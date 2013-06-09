@@ -373,11 +373,19 @@ You don't always want to use `includes()` when using active record, but it is on
 
 Commit your results to git
 
+Started GET "/products" for 10.0.2.2 at 2013-06-09 05:09:51 -0300
+Processing by ProductsController#index as HTML
+  Product Load (1.7ms)  SELECT "products".* FROM "products"
+  User Load (2.9ms)  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 3, 4, 5, 6, 7, 8, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 26, 27, 29, 30, 31, 32, 33, 34, 35, 36, 37, 41, 42, 43, 44, 45, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58, 60, 61, 62, 63, 64, 65, 66, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 93, 94, 95, 96, 97, 98, 99, 100)
+  Rendered products/index.html.erb within layouts/application (103.0ms)
+Completed 200 OK in 114ms (Views: 108.8ms | ActiveRecord: 4.6ms)
+
 If you wanted to speed up the page more how could you? Take a look at an [amazon search](http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=rails). Do they show you all the products on one page? At the bottom of the page, you can go to next and previous pages, this is called pagination.
 
 SQL has the operators LIMIT which restrict the number of results you get, as well as OFFSET which will essentially skip the number of entries you specify in the result. For example if you were returning 100 elements and you had an offset of 10, you would return elements 11 through 100.
 
 Do you think it would be possible to add pagination to this page with just LIMIT and OFFSET?
+yes, if I have a count of all the products, I can assign a variable where the offset will switch depending on the page that is
 
 No code or submission is required, just think about it.
 
