@@ -1,4 +1,22 @@
-<h2> Hello World </h2>
+<% first_product = Product.first %>
+<% cheap_product = Product.where("price > 1").first %>
+<% count_products = Product.all.count %>
 <p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
+  Product Name: <%= first_product.name %> costs $ <%= first_product.price %>
+</p>
+
+<p>
+  The seller for this product is named <%= first_product.user.name %>
+</p>
+
+<p>
+  Product count all DataBase: <%= count_products %>
+</p>
+
+<p>
+  Product Name: <%= cheap_product.name %> costs $ <%= cheap_product.price %>
+</p>
+
+<p>
+  The seller for this product is named <%= cheap_product.user.name %>
 </p>
