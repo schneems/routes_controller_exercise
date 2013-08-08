@@ -1,5 +1,10 @@
-<h2>Hello World</h2>
-<h2> I AMA View </h2>
-<p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
-</p>
+<h2>Cheap Products</h2>
+ 
+<ul>
+<% cheap_uns=Product.where("price<100") %>
+<% cheap_uns.each do |cu| %>
+	<li><b><%= "#{cu.name}" %></b> <%= "is sold by" %> <em><%= "#{cu.user.name}" %></em> <%= "for the price of" %> <b> <%= "#{cu.price}." %></b></li>
+<% end %>
+</ul>
+
+<em>Total number of products in database <b><%= Product.count %></b></em>
