@@ -1,5 +1,5 @@
 <% lots_of_products = Product.includes(:user).all %>
-ul>
+<ul>
   <% lots_of_products.each do |product| %>
     <li>
       Product Name: "<%= product.name %>"" costs $<%= product.price %>
