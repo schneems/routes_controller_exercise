@@ -1,10 +1,9 @@
-<h2>Cheap Products</h2>
- 
-<ul>
-<% cheap_uns=Product.where("price<100") %>
-<% cheap_uns.each do |cu| %>
-	<li><b><%= "#{cu.name}" %></b> <%= "is sold by" %> <em><%= "#{cu.user.name}" %></em> <%= "for the price of" %> <b> <%= "#{cu.price}." %></b></li>
-<% end %>
+<% lots_of_products = Product.includes(:user).all %>
+ul>
+  <% lots_of_products.each do |product| %>
+    <li>
+      Product Name: "<%= product.name %>"" costs $<%= product.price %>
+      Sold by <%= product.user.name %>
+    </li>
+  <% end %>
 </ul>
-
-<em>Total number of products in database <b><%= Product.count %></b></em>
