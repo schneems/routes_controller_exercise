@@ -196,20 +196,27 @@ There is a lot of information in a tiny package. When things go wrong in your ap
 
 Visit this url: [localhost:3000/users](http://localhost:3000/users) and then find the log entry. Then open up the readme.md you copied onto your local machine and fill out this information:
 
+Started GET "/users" for 127.0.0.1 at 2013-08-08 11:59:13 +0530
+Processing by UsersController#index as HTML
+  ←[1m←[35mUser Load (1.0ms)←[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (91.0ms)
+Completed 200 OK in 104ms (Views: 99.0ms | ActiveRecord: 1.0ms)
 
-HTTP verb used in this request:
-URL:
-Controller Name:
-Controller Action:
-View File Name:
-Layout File Name:
-Response code of the request:
+HTTP verb used in this request: GET
+URL: "/users"
+Controller Name: UsersController
+Controller Action: index
+View File Name: users/index.html.erb
+Layout File Name: layouts/application.html.erb
+Response code of the request: 200
 
 You should also notice a new line or two that we didn't see before, what is it (copy and paste, hint: after User Load) ?
 
+←[1m←[35mUser Load (1.0ms)←[0m  SELECT "users".* FROM "users"
+
 Why do you think this line is there?
 
-
+The new line is for the SQL query run in the database to get the list of users.
 
 Save and commit your answers.
 
