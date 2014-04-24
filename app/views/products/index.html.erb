@@ -1,11 +1,10 @@
-<% first_product = Product.first %>
-<p>
-  Product Name: "<%= first_product.name %>" costs $<%= first_product.price %>
-</p>
-<p>
-  The seller for this product is named '<%= first_product.user.name %>'
-</p>
-<% cheapest_product = Product.where('price<2').first %>
-<p>
-  The cheapest product is "<%=cheapest_product.name %>" and costs $<%= cheapest_product.price %> and belongs to '<%= cheapest_product.user.name%>'
-</p>
+<% all_products = Product.includes(:user).all %>
+<ul>
+  <% all_products.each do |product| %>
+    <li>
+      Product Name: <%= product.name %>
+      </br>Cost: $<%= product.price %>
+      </br>Owner: <%= product.user.name %>
+    </li>
+  <% end %>
+</ul>
