@@ -1,14 +1,9 @@
-<h2>Hello World</h2>
-<h2> I AMA View </h2>
-<% product = Product.where(:name => 'rails book').first %>
-<% cheap_product = Product.where('price > 1').first %>
-<p>
-  Product Name: "<%= product.name %>" costs <%= product.price %>, and the name of the owner of this product is <%= product.user.name %>
-</p>
+<% lots_of_products = Product.includes(:user).all %>
 
-<p>
-  Cheap Product Name: "<%= cheap_product.name %>" costs <%= cheap_product.price %>, and the name of the owner of this product is <%= cheap_product.user.name %>
-</p>
-<p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
-</p>
+<ul>
+  <% lots_of_products.each do |product| %>
+    <li>
+    Product Name: "<%= product.name %>" costs $<%= product.price %> Sold bym <%=product.user.name%>
+    </li>
+  <% end %>
+</ul>
