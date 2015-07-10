@@ -1,0 +1,18 @@
+<h2>Create View</h2>
+<%= params[:product].inspect %>
+
+<% product = Product.create(params[:product]) %>
+<%= product.save %>
+<%= product.inspect %>
+
+<% if product.save %>
+<h2> Congrats you created a new product</h2>
+Your product looks like <%= product.inspect %>
+<% else %>
+<h2>Your product was not saved!! </h2>
+<%= product.errors.full_messages %>
+Please go back in your roswer and fix the problem
+<% end %>
+
+<br />
+<%= product.errors.inspect %>
