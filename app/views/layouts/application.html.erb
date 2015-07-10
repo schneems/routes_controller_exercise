@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= link_to "Schneems Blog", "https://schneems.com" %>
+  <%= link_to "User List", users_path %>
+  <%= link_to "Products List", products_path %>
+
+  <%= params[:format] %>
+  <%= params.inspect %>
 
 <%= yield %>
 
