@@ -197,13 +197,14 @@ There is a lot of information in a tiny package. When things go wrong in your ap
 Visit this url: [localhost:3000/users](http://localhost:3000/users) and then find the log entry. Then open up the readme.md you copied onto your local machine and fill out this information:
 
 
-HTTP verb used in this request:
-URL:
-Controller Name:
-Controller Action:
-View File Name:
-Layout File Name:
-Response code of the request:
+HTTP verb used in this request: get
+URL: http://localhost:3000/users
+Controller Name: Products
+Controller Action: index
+View File Name: localhost: 3000
+Layout File Name: users
+hint:
+Response code of the request: show all the users
 
 You should also notice a new line or two that we didn't see before, what is it (copy and paste, hint: after User Load) ?
 
@@ -685,5 +686,3 @@ Congrats, you're done, you've come pretty far since last week. Last week you wer
 Now that you understand the basics of sending and retrieving data from a database, next week we can start to use some more rails practices to clean up your code and make life a little easier for yourself. If you were curious and decided to poke around in the views and controller for User, you might be a little surprised by how different it is, don't worry most of that is organization and is quite a bit harder to understand without the fundamentals we've just experienced.
 
 The most important thing to take away from this MVCr exercise is that you can (and should) build everything incrementally. It's okay to not understand the bigger picture until after you're done. Taking many small steps and checking yourself after each is the best way to stay on course, no matter what the activity is.
-
-
